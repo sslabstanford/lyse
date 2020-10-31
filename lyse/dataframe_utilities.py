@@ -32,7 +32,7 @@ def get_nested_dict_from_shot(filepath):
             for groupname in h5_file['results']:
                 resultsgroup = h5_file['results'][groupname]
                 row[groupname] = get_attributes(resultsgroup)
-        if 'images' in h5_file:
+        if ('images' in h5_file) and False: #stopped this because we don't organize images like this
             for orientation in h5_file['images'].keys():
                 if isinstance(h5_file['images'][orientation], h5py.Group):
                     row[orientation] = get_attributes(h5_file['images'][orientation])
